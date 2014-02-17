@@ -1,0 +1,6 @@
+eclipse.preferences.version=1
+environment/project/it.baeyens.avreclipse.configuration.app.release.980545052/AVRDUDEOPTIONS/delimiter=;
+environment/project/it.baeyens.avreclipse.configuration.app.release.980545052/AVRDUDEOPTIONS/operation=replace
+environment/project/it.baeyens.avreclipse.configuration.app.release.980545052/AVRDUDEOPTIONS/value=-patmega328p -cstk500 -P\\\\.\\COM3 -b57600 -v -v -v
+environment/project/it.baeyens.avreclipse.configuration.app.release.980545052/append=true
+environment/project/it.baeyens.avreclipse.configuration.app.release.980545052/appendContributed=true
