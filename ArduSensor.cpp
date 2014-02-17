@@ -5,6 +5,8 @@
 #include"LowPower.h"
 #include "OneWire.h"
 #include "Sensor.h"
+#include "Trace.h"
+#include "EEPROM_ardusensor.h"
 #include <avr/sleep.h>
 
 
@@ -13,7 +15,8 @@ void testInterrupt();
 uint32_t sleep_counter=-1;
 uint8_t pinLED = 2;
 static bool binding_ok;
-static SensorData message;
+static PiWeather_SensorData message;
+
 
 
 void setup()
@@ -43,7 +46,6 @@ void setup()
 		sensor_init();
 		LED_notify_binding();
 
-
 	}
 	else
 	{
@@ -51,6 +53,7 @@ void setup()
 		LED_notify_error();
 	}
 	RF_radio_sleep();
+	message.id=eeprom_get_id();
 }
 
 void testInterrupt(){

@@ -22,7 +22,7 @@ void RF_setupRadio();
 void RF_radio_sleep();
 void RF_radio_up();
 
-void RF_send_data(SensorData* i_p_message);
+void RF_send_data(PiWeather_SensorData* i_p_message);
 
 float RF_decode_DS18B20(byte* data);
 

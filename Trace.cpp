@@ -10,7 +10,9 @@
 
 
 void traceInit(uint32_t i_speed){
+#ifdef DEBUG
 	Serial.begin(i_speed);
+#endif
 }
 void traceLogln(String  i_message){
 #ifdef DEBUG

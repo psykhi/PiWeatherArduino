@@ -98,11 +98,11 @@ void DS18B20_get_measure(byte* data)
 }
 #endif
 
-void sensor_retrieve_measure(SensorData* o_p_message)
+void sensor_retrieve_measure(PiWeather_SensorData* o_p_message)
 {
 
 
-	o_p_message->id=eeprom_get_id();
+	//o_p_message->id=eeprom_get_id();
 
 #ifdef DS18B20
 	DS18B20_get_measure();
@@ -124,7 +124,7 @@ void DHT22_init()
 }
 
 
-void DHT22_get_measure(SensorData* message)
+void DHT22_get_measure(PiWeather_SensorData* message)
 {
 	digitalWrite(DHT22_VDD_PIN,HIGH);
 	delay(2500);
@@ -157,7 +157,7 @@ void BMP085_init()
 	bmp.begin(BMP085_ULTRALOWPOWER);
 
 }
-void BMP085_get_measure(SensorData* o_p_message)
+void BMP085_get_measure(PiWeather_SensorData* o_p_message)
 {
 
 

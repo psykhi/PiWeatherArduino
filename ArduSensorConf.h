@@ -31,7 +31,6 @@
 #define SLEEPING_COUNTER_MAX SLEEPING_TIME_SECONDS/8
 
 
-
 //#define DS18B20
 #define HAS_DHT22
 #define HAS_BMP085
