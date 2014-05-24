@@ -38,10 +38,7 @@ Adafruit_BMP085 bmp;
 
 void sensor_init()
 {
-
-
-
-	traceLog("Init the sensor");
+	traceLog("Init sensors");
 
 
 #ifdef HAS_DHT22
@@ -56,7 +53,9 @@ void sensor_start_measure(){
 #ifdef DS18B20
 	DS18B20_start_measure();
 #endif
-
+#ifdef HAS_DHT22
+	digitalWrite(DHT22_VDD_PIN,HIGH);
+#endif
 }
 
 #ifdef DS18B20
@@ -126,13 +125,11 @@ void DHT22_init()
 
 void DHT22_get_measure(PiWeather_SensorData* message)
 {
-	digitalWrite(DHT22_VDD_PIN,HIGH);
-	delay(2500);
 	DHT22_ERROR_t errorCode=DHT_ERROR_NOT_PRESENT;
 	errorCode = DHT_22.readData();
 	digitalWrite(DHT22_VDD_PIN,LOW);
 
-	Serial.print("error code ");
+	Serial.print("errcode ");
 	Serial.println(errorCode);
 	switch(errorCode)
 	{
@@ -146,7 +143,6 @@ void DHT22_get_measure(PiWeather_SensorData* message)
 		LED_notify_error_brief();
 		break;
 	}
-
 }
 
 #endif
@@ -159,7 +155,6 @@ void BMP085_init()
 }
 void BMP085_get_measure(PiWeather_SensorData* o_p_message)
 {
-
 
 	o_p_message->has_pressure=true;
 	o_p_message->pressure=((float)(bmp.readPressure()))/100;

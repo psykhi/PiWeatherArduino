@@ -11,7 +11,7 @@
 #include "Trace.h"
 
 void save_ID_to_EEPROM(uint8_t i_id){
-	traceLog("Saving received ID");
+	traceLog("Saving ID");
 	EEPROM.write(0,i_id);
 }
 

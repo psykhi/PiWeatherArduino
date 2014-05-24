@@ -10,9 +10,8 @@
 #include <avr/sleep.h>
 
 
-void testInterrupt();
 
-uint32_t sleep_counter=-1;
+int16_t sleep_counter=-1;
 uint8_t pinLED = 2;
 static bool binding_ok;
 static PiWeather_SensorData message;
@@ -21,9 +20,8 @@ static PiWeather_SensorData message;
 
 void setup()
 {
-
 #ifdef DEBUG
-	EEPROM.write(0,1);
+//	EEPROM.write(0,0);
 #endif
 	pinMode(0,INPUT);
 	pinMode(LED_R,OUTPUT);
@@ -34,9 +32,7 @@ void setup()
 
 	digitalWrite(pinLED,HIGH);
 	traceInit(COM_SPEED);
-	traceLogln("========================");
-	traceLogln("   ARDUSENSOR DEBUG     ");
-	traceLogln("========================");
+	traceLogln("DEBUG");
 	traceLogln("");
 	traceLogln("");
 	if(RF_bindRadio(NETWORK_DATA_PIPE))
@@ -56,13 +52,9 @@ void setup()
 	message.id=eeprom_get_id();
 }
 
-void testInterrupt(){
-
-}
 
 void loop()
 {
-
 	if(binding_ok)
 	{
 		RF_radio_up();
@@ -73,7 +65,7 @@ void loop()
 		{
 			sensor_start_measure();
 
-			traceLogln("Preparing measurement");
+			traceLogln("Measure-1");
 		}
 		else if(sleep_counter==SLEEPING_COUNTER_MAX)
 		{
@@ -87,7 +79,7 @@ void loop()
 			traceLog(message.temperature);
 			RF_send_data(&message);
 			sleep_counter=-1;
-			traceLogln("Sent measurement");
+			traceLogln("Sent data");
 		}
 		RF_radio_sleep();
 	}

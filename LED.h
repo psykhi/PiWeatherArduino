@@ -14,4 +14,7 @@ void LED_notify_error();
 void LED_notify_error_brief();
 void LED_notify_low_voltage();
 void LED_begin();
+void LED_notify_timeout();
+void LED_notify_send_done();
+void LED_notify_RF_failure();
 #endif /* LED_H_ */

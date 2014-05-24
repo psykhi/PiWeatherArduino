@@ -10,30 +10,30 @@
 
 
 void traceInit(uint32_t i_speed){
-#ifdef DEBUG
+//#ifdef DEBUG
 	Serial.begin(i_speed);
-#endif
+//#endif
 }
 void traceLogln(String  i_message){
-#ifdef DEBUG
+//#ifdef DEBUG
 	Serial.println(i_message);
-#endif
+//#endif
 }
 
 void traceLogln(uint32_t  i_val){
-#ifdef DEBUG
+////#ifdef DEBUG
 	Serial.println(i_val);
-#endif
+////#endif
 }
 
 void traceLog(String  i_message){
-#ifdef DEBUG
+////#ifdef DEBUG
 	Serial.println(i_message);
-#endif
+//#endif
 }
 
 void traceLog(uint32_t  i_val){
-#ifdef DEBUG
+//#ifdef DEBUG
 	Serial.println(i_val);
-#endif
+//#endif
 }

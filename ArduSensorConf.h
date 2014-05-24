@@ -9,7 +9,7 @@
 #define ARDUSENSORCONF_H_
 
 
-#define DEBUG
+//#define DEBUG
 #define COM_SPEED 115200
 
 /*Pins*/
@@ -30,6 +30,8 @@
 #define SLEEPING_TIME_SECONDS 800 //Time between measurements in seconds
 #define SLEEPING_COUNTER_MAX SLEEPING_TIME_SECONDS/8
 
+
+#define INIT_TIMEOUT 8000
 
 //#define DS18B20
 #define HAS_DHT22
